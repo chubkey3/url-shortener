@@ -1,6 +1,11 @@
 import {Schema, model, models} from 'mongoose';
 
-const UrlSchema = new Schema({
+interface Url {
+    url: String,
+    target: String
+}
+
+const UrlSchema = new Schema<Url>({
     url: {
         type: String,
         required: true
@@ -11,4 +16,4 @@ const UrlSchema = new Schema({
     }
 })
 
-export default models.Urls || model('Urls', UrlSchema)
+export default models.Urls || model<Url>('Urls', UrlSchema)

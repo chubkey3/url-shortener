@@ -1,5 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-//make url route
 import url_model from '../../models/url'
 import { connect } from 'mongoose'
 
@@ -39,7 +37,7 @@ export default async function handler(
     target: req.body.url
   })
 
-  const test = await url.save();
+  await url.save();
 
   res.status(200).json({url: req.headers.host + '/' + url.url})
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import { useRouter } from 'next/router'
 import { NextPage } from 'next'
 import {connect} from 'mongoose'
 import url_model from '../models/url'
@@ -25,6 +24,7 @@ export async function getServerSideProps({ resolvedUrl }: any) {
   await connect('mongodb+srv://Chubkey:booman3000@images.v2rim.mongodb.net/?retryWrites=true&w=majority');
   
   const url = await url_model.findOne({url: resolvedUrl.slice(1)})
+  
   return {props: {url: JSON.stringify(url)}}
 }
 
