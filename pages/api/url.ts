@@ -17,7 +17,7 @@ function getString(length = 5){
 }
 
 async function db_connect() {
-  await connect('mongodb+srv://Chubkey:booman3000@images.v2rim.mongodb.net/?retryWrites=true&w=majority'); 
+  await connect(process.env.MONGO_URI); 
 }
 
 import type { NextApiRequest, NextApiResponse } from 'next'
