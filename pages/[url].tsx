@@ -21,7 +21,7 @@ const Url:NextPage = ({url}: any) => {
 }
 
 export async function getServerSideProps({ resolvedUrl }: any) {
-  await connect('mongodb+srv://Chubkey:booman3000@images.v2rim.mongodb.net/?retryWrites=true&w=majority');
+  await connect(process.env.MONGO_URI);
   
   const url = await url_model.findOne({url: resolvedUrl.slice(1)})
   
